@@ -1,7 +1,7 @@
 # vue-data-store
 ### Simple vue global store
 
-## Install
+### Install
 ```
 npm install vue-data-store
 ```
