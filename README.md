@@ -1,4 +1,5 @@
 # vue-data-store
+### Simple vue global store
 
 ## Install
 ```

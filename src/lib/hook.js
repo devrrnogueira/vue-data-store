@@ -1,6 +1,5 @@
 import { ref, watch, onUnmounted } from 'vue'
 
-
 export default function createStore(data = null) {
     let uidIndex = 0
     let store = data || {}
