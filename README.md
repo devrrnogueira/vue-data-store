@@ -57,8 +57,8 @@ export default {
       arr
   }),
   created() {
-    this.count = store.attach('count')
-    this.arr = store.attach('arr')
+    this.count = store.attach('count', this)
+    this.arr = store.attach('arr', this)
   },
   methods: {
     increment(){
