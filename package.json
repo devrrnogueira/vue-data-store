@@ -7,7 +7,7 @@
   "repository": {
     "url": "https://github.com/devrrnogueira/vue-data-store"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "files": [
     "hook.js",
@@ -16,14 +16,14 @@
   "main": "index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "cp ./src/lib/* ./",
-    "publish-package": "cp ./src/lib/* ./ && npm publish && rm ./hook.js && rm ./index.js",
-    "build-vue": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "prepublishOnly": "cp ./src/lib/* ./",
+    "postpublish": "rm ./hook.js && rm ./index.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "core-js": "*",
+    "vue": "*"
   },
   "peerDependencies": {
     "core-js": "*",
