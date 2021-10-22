@@ -1,33 +1,14 @@
-import { ref, watch, onUnmounted } from 'vue'
+import { ref } from 'vue'
 
-export default function createStore(data = null) {
-    let uidIndex = 0
-    let store = data || {}
+export default function createStore(data) {
+    let store = data
     let refs = {}
     
+    Object.keys(store).forEach(key => {
+        refs[key] = ref(store[key])
+    })
+
     return function useStore(key) {
-        let uid = uidIndex++
-        let value = ref(store[key])
-        let def
-    
-        refs[key] = def = refs[key] || {}
-        def[uid] = value
-        
-        watch(value, (newValue) => {
-            let k
-            
-            store[key] = newValue
-    
-            for (k in def){
-                if (k == uid) continue
-                def[k].value = newValue
-            }
-        })
-    
-        onUnmounted(()=>{
-            delete (def[uid])
-        })
-    
-        return ref(value)
+        return refs[key]
     }
 }
